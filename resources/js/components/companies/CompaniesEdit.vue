@@ -5,7 +5,7 @@
         <input type="text" placeholder="Email" name="email" id="email" v-model="company.email" >
         <input type="text" placeholder="Address" name="address" id="address" v-model="company.address" >
         <input type="text" placeholder="Website" name="website" id="website" v-model="company.website" >
-        <button type="submit">Create</button>
+        <button type="submit">Update</button>
     </form>
 </template>
 
