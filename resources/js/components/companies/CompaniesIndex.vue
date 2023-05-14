@@ -1,6 +1,8 @@
 <template>
     <ul>
-        <li v-for="company in companies" :key="company.id">{{ company.name }} - {{ company.email }} - {{ company.address }} - {{ company.website }}</li>
+        <li v-for="company in companies" :key="company.id">{{ company.name }} - {{ company.email }} - {{ company.address }} - {{ company.website }} 
+            <button @click="deleteCompany(company.id)" className="bg-red-900">Delete</button>
+        </li>
     </ul>
 </template>
 
@@ -10,10 +12,16 @@ import { onMounted } from 'vue';
 
 export default {
     setup() {
-        const { companies, getCompanies } = useCompanies()
+        const { companies, getCompanies, destroyCompany } = useCompanies()
         onMounted(getCompanies)
+        const deleteCompany = async id => {
+            if(!window.confirm('Are you sure')) return
+            await destroyCompany(id)
+            await getCompanies()
+        }
         return {
-            companies
+            companies,
+            deleteCompany
         }
     }
 }
