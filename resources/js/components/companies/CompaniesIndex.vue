@@ -4,6 +4,7 @@
     </div>
     <ul>
         <li v-for="company in companies" :key="company.id">{{ company.name }} - {{ company.email }} - {{ company.address }} - {{ company.website }} 
+            <router-link :to="{ name: 'companies.edit', params: {id: company.id}}">Edit</router-link>
             <button @click="deleteCompany(company.id)" className="bg-red-900">Delete</button>
         </li>
     </ul>
