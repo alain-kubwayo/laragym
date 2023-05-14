@@ -1,4 +1,7 @@
 <template>
+    <div>
+        <router-link :to="{ name: 'companies.create' }">Create company</router-link>
+    </div>
     <ul>
         <li v-for="company in companies" :key="company.id">{{ company.name }} - {{ company.email }} - {{ company.address }} - {{ company.website }} 
             <button @click="deleteCompany(company.id)" className="bg-red-900">Delete</button>
